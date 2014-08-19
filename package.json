@@ -1,0 +1,43 @@
+{
+  "name": "fswin-binary",
+  "description": "Use fswin without Visual C++",
+  "version": "0.1.0",
+  "homepage": "https://github.com/stevenvachon/fswin-binary",
+  "author": {
+    "name": "Steven Vachon",
+    "email": "contact@svachon.com",
+    "url": "http://www.svachon.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stevenvachon/fswin-binary.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stevenvachon/fswin-binary/issues"
+  },
+  "dependencies": {
+    "download": "^1.0",
+    "download-status": "^1.0"
+  },
+  "devDependencies": {
+    "chai": "^1.9",
+    "mocha": "^1.21"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "scripts": {
+    "install": "node install",
+    "test": "mocha test --bail --reporter spec --check-leaks"
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "filesystem",
+    "fs",
+    "fswin",
+    "ntfs",
+    "windows"
+  ]
+}
