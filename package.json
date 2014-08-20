@@ -1,7 +1,7 @@
 {
   "name": "fswin-binary",
   "description": "Use fswin without Visual C++",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/stevenvachon/fswin-binary",
   "author": {
     "name": "Steven Vachon",
@@ -17,7 +17,8 @@
   },
   "dependencies": {
     "download": "^1.0",
-    "download-status": "^1.0"
+    "download-status": "^1.0",
+    "semver": "^3.0"
   },
   "devDependencies": {
     "chai": "^1.9",
@@ -31,7 +32,8 @@
     "test": "mocha test --bail --reporter spec --check-leaks"
   },
   "files": [
-    "lib"
+    "index.js",
+    "install.js"
   ],
   "keywords": [
     "filesystem",
