@@ -17,7 +17,7 @@ fs.readdirSync(vendorPath).every( function(file)
 		vendorPath = path.join(vendorPath,file);
 		switch (os)
 		{
-			case "x32": vendorPath=path.join(vendorPath,"x32"); break;
+			case "x86": vendorPath=path.join(vendorPath,"x86"); break;
 			case "x64": vendorPath=path.join(vendorPath,"x64"); break;
 			default: vendorPath=null;
 		}
