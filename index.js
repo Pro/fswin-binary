@@ -1,25 +1,25 @@
 var fs = require("fs");
 var fsWin = null;
-var os = require("os").platform();
+var os = require("os").arch();
 var semver = require("semver");
+var path = require("path");
 
-var extractedPath = "./vendor";
-var path = extractedPath;
+var extractedPath = path.resolve(__dirname, "vendor");
+var vendorPath = extractedPath;
 
 
 
 // Best to be synchronous for module.exports
-fs.readdirSync(path).every( function(file)
+fs.readdirSync(vendorPath).every( function(file)
 {
 	if ( semver.satisfies(process.versions.node, file) )
 	{
-		path += "/" + file;
-		
+		vendorPath = path.join(vendorPath,file);
 		switch (os)
 		{
-			case "win32": path+="/x86"; break;
-			case "win64": path+="/x64"; break;
-			default: path=null;
+			case "x32": vendorPath=path.join(vendorPath,"x32"); break;
+			case "x64": vendorPath=path.join(vendorPath,"x64"); break;
+			default: vendorPath=null;
 		}
 		
 		return false;
@@ -29,9 +29,9 @@ fs.readdirSync(path).every( function(file)
 });
 
 
-if (path && path!=extractedPath)
+if (vendorPath && vendorPath!=extractedPath)
 {
-	fsWin = require(path+"/fswin.node");
+	fsWin = require(path.join(vendorPath,"fswin.node"));
 }
 
 
