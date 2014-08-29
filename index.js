@@ -17,6 +17,8 @@ if (process.platform.indexOf("win") == 0)
 		if ( semver.satisfies(process.versions.node, file) )
 		{
 			vendorPath = path.join(vendorPath,file);
+			console.log("MY Os IS: " + require("os").arch());
+			console.log("MY Platform IS: " + require("os").platform());
 			switch (os)
 			{
 				case "x86": vendorPath=path.join(vendorPath,"x86"); break;
